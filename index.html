@@ -33,9 +33,10 @@
         .input-line {
             display: flex;
             color: #00ff00;
+            margin-top: 5px;
         }
         
-        .prompt { color: #00ff00; margin-right: 5px; }
+        .prompt { color: #00ff00; margin-right: 5px; font-weight: bold; }
         
         #cmd-input {
             background: transparent;
@@ -67,13 +68,19 @@
     <div class="monitor">
         <div class="screen" id="screen">
             <div class="terminal" id="terminal">
-                <div class="output">LDM-OS BIOS v1.0 - Copyright (c) 2024</div>
+                <div class="output">LDM-OS BIOS v1.0 - Copyright (c) 2026</div>
                 <div class="output">CPU: x86 32-bit Protected Mode</div>
                 <div class="output">RAM: 4 MB detected</div>
                 <div class="output">-------------------------------------------</div>
                 <div class="info">Bootloader: Chargement du secteur 1...</div>
                 <div class="success">Bootloader: OK - Passage en mode protégé</div>
                 <div id="kernel-output"></div>
+                
+                <!-- CORRECTION : Ajout de la zone de saisie interactive masquée par défaut pendant le boot -->
+                <div class="input-line" id="input-container" style="display: none;">
+                    <span class="prompt" id="terminal-prompt">root@LDM-OS:~#</span>
+                    <input type="text" id="cmd-input" autofocus autocomplete="off" spellcheck="false">
+                </div>
             </div>
         </div>
         <div class="taskbar">
@@ -82,6 +89,7 @@
         </div>
     </div>
 
+    <!-- S'assurer que le fichier JS s'appelle bien os-simulator.js -->
     <script src="os-simulator.js"></script>
 </body>
 </html>
